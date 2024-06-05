@@ -3,6 +3,10 @@ import { FooterComponent } from './component/FooterComponent'
 import { HeaderComponent } from './component/HeaderComponent'
 import ListUserComponent from './component/ListUserComponent'
 import UserComponent from './component/UserComponent'
+import ListShareComponent from './component/ListShareComponent'
+import ShareComponent from './component/ShareComponent'
+import ListCompanyComponent from './component/ListCompanyComponent'
+import CompanyComponent from './component/CompanyComponent'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -15,11 +19,17 @@ function App() {
             <Route path='/users' element = { <ListUserComponent/> }></Route>
             <Route path='/add-user' element = { <UserComponent/> }></Route>
             <Route path='/edit-user/:id' element = { <UserComponent/>}></Route>
+            <Route path='/user-shares/:id' element = { <ListShareComponent/> }></Route>
 
-            <Route path='/' element = { <ListUserComponent/> }></Route>
-            <Route path='/shares' element = { <ListUserComponent/> }></Route>
-            <Route path='/add-share' element = { <UserComponent/> }></Route>
-            <Route path='/edit-share/:id' element = { <UserComponent/>}></Route>
+            <Route path='/shares' element = { <ListShareComponent/> }></Route>
+            <Route path='/add-share' element = { <ShareComponent/> }></Route>
+            <Route path='/edit-share/:id' element = { <ShareComponent/>}></Route>
+
+
+            <Route path='/companies' element = { <ListCompanyComponent/> }></Route>
+            <Route path='/add-company' element = { <CompanyComponent/> }></Route>
+            <Route path='/edit-company/:id' element = { <CompanyComponent/>}></Route>
+            <Route path='/company-shares/:id' element = { <ListShareComponent/> }></Route>
           </Routes>
         <FooterComponent/>
       </BrowserRouter>

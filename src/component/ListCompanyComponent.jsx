@@ -1,44 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import { listUsers, createUser, getUser, updateUser, deleteUser } from '../service/UserService'
+import { listCompanies, createCompany, getCompany, updateCompany, deleteCompany } from '../service/CompanyService'
 import { useNavigate } from 'react-router-dom'
 
-const ListUserComponent = () => {
+const ListCompanyComponent = () => {
 
-    const [users, setUsers] = useState([])
+    const [companies, setCompanies] = useState([])
 
     const navigator = useNavigate();
 
     useEffect(() => {
-        getAllUsers();
+        getAllCompanies();
     }, [])
 
-    function getAllUsers() {
-        listUsers().then((response) => {
+    function getAllCompanies() {
+        listCompanies().then((response) => {
             console.log(response.data); 
-            setUsers(response.data);
+            setCompanies(response.data);
         }).catch(error => {
             if (error.response && error.response.status === 404) {
                 setCompanies([]); 
-                alert('No users found'); 
+                alert('No companies found'); 
             } else {
                 console.error(error);
             }
         })
     }
 
-    function addUser() {
-        navigator('/add-user')
+    function addCompany() {
+        navigator('/add-company')
     }
 
-    function updateUser(id) {
-        navigator(`/edit-user/${id}`);
+    function updateCompany(id) {
+        navigator(`/edit-company/${id}`);
     }
 
-    function removeUser(id) {
+    function removeCompany(id) {
         console.log(id);
 
-        deleteUser(id).then((response) => {
-            getAllUsers();
+        deleteCompany(id).then((response) => {
+            getAllCompanies();
             console.log(response.data);
         }).catch(error => {
             console.error(error);
@@ -46,45 +46,45 @@ const ListUserComponent = () => {
     }
 
     function getShares(id) {
-        navigator(`/user-shares/${id}`);
+        navigator(`company-shares/${id}`);
     }
 
   return (
     <div className='container-fluid d-flex flex-column' style={{minHeight: '86vh', paddingBottom: '5vh'}}> 
 
-        <h3 className='text-center'  style={{marginTop: '5vh', marginBottom: '5vh', fontWeight: 'bold'}} >Registered users</h3>
+        <h3 className='text-center'  style={{marginTop: '5vh', marginBottom: '5vh', fontWeight: 'bold'}} >All companies</h3>
 
         <button style={{ backgroundColor: '#03452f', float: 'left', width: '40vh' }} 
-            className='btn btn-primary mb-2' onClick={addUser}>Add user
+            className='btn btn-primary mb-2' onClick={addCompany}>Add company
         </button>
 
         <table className='table table-striped table-bordered rounded overfow-hidden'
                 style={{ boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', paddingLeft: '20px', paddingRight: '20px'}}>
             <thead className='table-success'>
                 <tr>
-                    <th>User Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
+                    <th>Company Id</th>
+                    <th>Company Name</th>
+                    <th>Capitalization</th>
+                    <th>Adress</th>
+                    <th>Website</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {
-                    users.map(user => 
-                        <tr key={user.id}>
-                            <td>{user.id}</td>
-                            <td>{user.firstName}</td>
-                            <td>{user.lastName}</td>
-                            <td>{user.email}</td>
-                            <td>{user.phoneNumber}</td>
+                    companies.map(company => 
+                        <tr key={company.id}>
+                            <td>{company.id}</td>
+                            <td>{company.name}</td>
+                            <td>{company.capitalize}</td>
+                            <td>{company.adress}</td>
+                            <td>{company.website}</td>
                             <td style={{ width: '20vw' }}>
                                 <div className="button-container" style={{width: '20vw', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
-                                    className='btn' onClick={() => updateUser(user.id)}>Update</button>
+                                    className='btn' onClick={() => updateCompany(company.id)}>Update</button>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
-                                    className='btn' onClick={() => removeUser(user.id)}>Delete</button>
+                                    className='btn' onClick={() => removeCompany(company.id)}>Delete</button>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                                     className='btn' onClick={() => getShares(id)}>Shares</button>
                                 </div>
@@ -98,4 +98,4 @@ const ListUserComponent = () => {
   )
 }
 
-export default ListUserComponent
+export default ListCompanyComponent

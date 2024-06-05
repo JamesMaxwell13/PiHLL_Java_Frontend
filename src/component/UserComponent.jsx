@@ -41,7 +41,6 @@ const UserComponent = () => {
 
         if(validateForm()){
 
-            console.log("validated");
             if(id){
                 const user = {firstName, lastName, email, phoneNumber}
                 updateUser(id, user).then((response) => {
@@ -79,7 +78,7 @@ const UserComponent = () => {
                         <input 
                             style={{ backgroundColor: '#93eabd' }}
                             type='password'
-                            placeholder='Enter Your Password'
+                            placeholder='Enter Your password'
                             name='password'
                             value={password}
                             className={`form-control ${errors.password ? 'is-invalid': '' }`}
@@ -139,7 +138,7 @@ const UserComponent = () => {
     }
 
   return (
-    <div className='container' style={{minHeight: '87vh', paddingBottom: '5vh'}}>
+    <div className='container' style={{minHeight: '86vh', paddingBottom: '5vh'}}>
         <div className='row'>
             <div className='card col-md-6 offset-md-3 offset md-3 mt-4'>
                 {
@@ -152,7 +151,7 @@ const UserComponent = () => {
                             <input 
                                 style={{ backgroundColor: '#93eabd' }}
                                 type='text'
-                                placeholder='Enter Your First Name'
+                                placeholder='Enter Your first name'
                                 name='firstName'
                                 value={firstName}
                                 className={`form-control ${errors.firstName ? 'is-invalid': '' }`}
@@ -166,7 +165,7 @@ const UserComponent = () => {
                             <input 
                                 style={{ backgroundColor: '#93eabd' }}
                                 type='text'
-                                placeholder='Enter Your Last Name'
+                                placeholder='Enter Your last name'
                                 name='lastName'
                                 value={lastName}
                                 className={`form-control ${errors.lastName ? 'is-invalid': '' }`}
@@ -180,7 +179,7 @@ const UserComponent = () => {
                             <input 
                                 style={{ backgroundColor: '#93eabd' }}
                                 type='text'
-                                placeholder='Enter Your Email'
+                                placeholder='Enter Your email'
                                 name='email'
                                 value={email}
                                 className={`form-control ${errors.email ? 'is-invalid': '' }`}
@@ -190,11 +189,11 @@ const UserComponent = () => {
                             {errors.email && <div className='invalid-feedback' style={{fontSize: '12px'}}> {errors.email} </div>}
                         </div>
                         <div className='form-group mb-1'> 
-                            <label className='form-label' style={{ float: 'left' }}>Phone number</label>
+                            <label className='form-label' style={{ float: 'left' }}>Phone Number</label>
                             <input 
                                 style={{ backgroundColor: '#93eabd' }}
                                 type='text'
-                                placeholder='Enter Your Phone'
+                                placeholder='Enter Your phone number'
                                 name='phoneNumber'
                                 value={phoneNumber}
                                 className={`form-control ${errors.phoneNumber ? 'is-invalid': '' }`}
