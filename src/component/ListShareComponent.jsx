@@ -162,13 +162,13 @@ const ListShareComponent = () => {
             )
         }else{
             return (
-                <td style={{ width: '20vw' }}>
-                <div className="button-container" style={{width: '20vw', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                    <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
+                <td style={{ width: '23vw' }}>
+                <div className="button-container" style={{width: '23vw', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
+                    <button style={{ width: '7vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                     className='btn' onClick={() => updateShare(share.id)}>Update</button>
-                    <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
+                    <button style={{ width: '7vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                     className='btn' onClick={() => removeShare(share.id)}>Delete</button>
-                    <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
+                    <button style={{ width: '7vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                     className='btn' onClick={() => getCompany(share.id)}>Company</button>
                 </div>
                 </td>
