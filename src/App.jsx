@@ -19,7 +19,8 @@ function App() {
             <Route path='/users' element = { <ListUserComponent/> }></Route>
             <Route path='/add-user' element = { <UserComponent/> }></Route>
             <Route path='/edit-user/:id' element = { <UserComponent/>}></Route>
-            <Route path='/user-shares/:id' element = { <ListShareComponent/> }></Route>
+            <Route path='/user-shares/:userId' element = { <ListShareComponent/> }></Route>
+            <Route path='/store-shares/:userBuyId' element = { <ListShareComponent/> }></Route>
 
             <Route path='/shares' element = { <ListShareComponent/> }></Route>
             <Route path='/add-share' element = { <ShareComponent/> }></Route>
@@ -29,7 +30,7 @@ function App() {
             <Route path='/companies' element = { <ListCompanyComponent/> }></Route>
             <Route path='/add-company' element = { <CompanyComponent/> }></Route>
             <Route path='/edit-company/:id' element = { <CompanyComponent/>}></Route>
-            <Route path='/company-shares/:id' element = { <ListShareComponent/> }></Route>
+            <Route path='/company-shares/:companyId' element = { <ListShareComponent/> }></Route>
           </Routes>
         <FooterComponent/>
       </BrowserRouter>

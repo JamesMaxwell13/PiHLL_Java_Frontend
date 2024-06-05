@@ -45,17 +45,17 @@ const ListCompanyComponent = () => {
         })
     }
 
-    function getShares(id) {
-        navigator(`company-shares/${id}`);
+    function getShares(companyId) {
+        navigator(`/company-shares/${companyId}`);
     }
 
   return (
     <div className='container-fluid d-flex flex-column' style={{minHeight: '86vh', paddingBottom: '5vh'}}> 
 
-        <h3 className='text-center'  style={{marginTop: '5vh', marginBottom: '5vh', fontWeight: 'bold'}} >All companies</h3>
+        <h3 className='text-center'  style={{marginTop: '5vh', marginBottom: '2vh', fontWeight: 'bold'}} >All companies</h3>
 
         <button style={{ backgroundColor: '#03452f', float: 'left', width: '40vh' }} 
-            className='btn btn-primary mb-2' onClick={addCompany}>Add company
+            className='btn btn-primary mb-3' onClick={addCompany}>Add company
         </button>
 
         <table className='table table-striped table-bordered rounded overfow-hidden'
@@ -86,7 +86,7 @@ const ListCompanyComponent = () => {
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                                     className='btn' onClick={() => removeCompany(company.id)}>Delete</button>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
-                                    className='btn' onClick={() => getShares(id)}>Shares</button>
+                                    className='btn' onClick={() => getShares(company.id)}>Shares</button>
                                 </div>
                             </td>
                         </tr>

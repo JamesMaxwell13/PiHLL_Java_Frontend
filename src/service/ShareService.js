@@ -14,6 +14,12 @@ export const deleteShare = (id) => axios.delete(REST_API_BASE_URL + '/' + id);
 
 export const getCompany = (id) => axios.get(REST_API_BASE_URL + '/' + id + '/company');
 
-export const getUserShares = (id) => axios.get(REST_API_BASE_URL.replace('share', '') + '/company/' + id + '/shares');
+export const getCompanyShares = (companyId) => axios.get(REST_API_BASE_URL.replace('share', '') + 'company/' + companyId + '/shares');
 
-export const getCompanyShares = (id) => axios.get(REST_API_BASE_URL.replace('share', '') + '/user/' + id + '/shares');
+export const getUserShares = (userId) => axios.get(REST_API_BASE_URL.replace('share', '') + 'user/' + userId + '/shares');
+
+export const sellUserShare = (userId, id) => axios.delete(REST_API_BASE_URL.replace('share', '') + 'user/' + userId + '/shares?share_id=' + id);
+
+export const buyUserShare = (userId, id) => axios.post(REST_API_BASE_URL.replace('share', '') + 'user/' + userId + '?share_id=' + id);
+
+export const getNotPurchasedShares = (userBuyId) => axios.get(REST_API_BASE_URL.replace('share', '') + 'user/' + userBuyId + '/shares/none');

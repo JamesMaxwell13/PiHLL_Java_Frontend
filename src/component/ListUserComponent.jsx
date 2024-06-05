@@ -18,7 +18,7 @@ const ListUserComponent = () => {
             setUsers(response.data);
         }).catch(error => {
             if (error.response && error.response.status === 404) {
-                setCompanies([]); 
+                setUsers([]); 
                 alert('No users found'); 
             } else {
                 console.error(error);
@@ -45,17 +45,21 @@ const ListUserComponent = () => {
         })
     }
 
-    function getShares(id) {
-        navigator(`/user-shares/${id}`);
+    function getShares(userId) {
+        navigator(`/user-shares/${userId}`);
+    }
+
+    function goStore(userBuyId) {
+        navigator(`/store-shares/${userBuyId}`);
     }
 
   return (
     <div className='container-fluid d-flex flex-column' style={{minHeight: '86vh', paddingBottom: '5vh'}}> 
 
-        <h3 className='text-center'  style={{marginTop: '5vh', marginBottom: '5vh', fontWeight: 'bold'}} >Registered users</h3>
+        <h3 className='text-center'  style={{marginTop: '5vh', marginBottom: '2vh', fontWeight: 'bold'}} >Registered users</h3>
 
         <button style={{ backgroundColor: '#03452f', float: 'left', width: '40vh' }} 
-            className='btn btn-primary mb-2' onClick={addUser}>Add user
+            className='btn btn-primary mb-3' onClick={addUser}>Add user
         </button>
 
         <table className='table table-striped table-bordered rounded overfow-hidden'
@@ -79,14 +83,16 @@ const ListUserComponent = () => {
                             <td>{user.lastName}</td>
                             <td>{user.email}</td>
                             <td>{user.phoneNumber}</td>
-                            <td style={{ width: '20vw' }}>
-                                <div className="button-container" style={{width: '20vw', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
+                            <td style={{ width: '28vw' }}>
+                                <div className="button-container" style={{width: '28vw', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                                     className='btn' onClick={() => updateUser(user.id)}>Update</button>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
                                     className='btn' onClick={() => removeUser(user.id)}>Delete</button>
                                     <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
-                                    className='btn' onClick={() => getShares(id)}>Shares</button>
+                                    className='btn' onClick={() => getShares(user.id)}>Shares</button>
+                                    <button style={{ width: '6vw', backgroundColor: '#03452f', textSize: '14px', color: 'white'}} 
+                                    className='btn' onClick={() => goStore(user.id)}>Store</button>
                                 </div>
                             </td>
                         </tr>
