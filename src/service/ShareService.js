@@ -12,7 +12,7 @@ export const updateShare = (id, share) => axios.put(REST_API_BASE_URL + '/' + id
 
 export const deleteShare = (id) => axios.delete(REST_API_BASE_URL + '/' + id);
 
-export const getCompany = (id) => axios.get(REST_API_BASE_URL + '/' + id + '/company');
+export const getCompany = (shareId) => axios.get(REST_API_BASE_URL + '/' + shareId + '/company');
 
 export const getCompanyShares = (companyId) => axios.get(REST_API_BASE_URL.replace('share', '') + 'company/' + companyId + '/shares');
 

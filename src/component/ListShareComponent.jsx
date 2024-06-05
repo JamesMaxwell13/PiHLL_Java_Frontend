@@ -105,8 +105,8 @@ const ListShareComponent = () => {
         })
     }
 
-    function getCompany(id) {
-        navigator(`/company/${id}`);
+    function getCompany(shareId) {
+        navigator(`/company-share/${shareId}`);
     }
 
     function sellShare(userId, id) {

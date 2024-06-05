@@ -7,6 +7,7 @@ import ListShareComponent from './component/ListShareComponent'
 import ShareComponent from './component/ShareComponent'
 import ListCompanyComponent from './component/ListCompanyComponent'
 import CompanyComponent from './component/CompanyComponent'
+import CompanyViewComponent from './component/CompanyViewComponent'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             <Route path='/shares' element = { <ListShareComponent/> }></Route>
             <Route path='/add-share' element = { <ShareComponent/> }></Route>
             <Route path='/edit-share/:id' element = { <ShareComponent/>}></Route>
-
+            <Route path='/company-share/:shareId' element = { <CompanyViewComponent/>}></Route>
 
             <Route path='/companies' element = { <ListCompanyComponent/> }></Route>
             <Route path='/add-company' element = { <CompanyComponent/> }></Route>
