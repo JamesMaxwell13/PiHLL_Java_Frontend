@@ -161,7 +161,7 @@ const CompanyComponent = () => {
                             <input 
                                 style={{ backgroundColor: '#93eabd' }}
                                 type='text'
-                                placeholder='Enter Your Phone'
+                                placeholder='Enter company website'
                                 name='website'
                                 value={website}
                                 className={`form-control ${errors.website ? 'is-invalid': '' }`}
