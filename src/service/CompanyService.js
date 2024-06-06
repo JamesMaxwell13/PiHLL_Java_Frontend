@@ -1,9 +1,8 @@
 import axios from "axios";
-import { process } from 'react'
 
-const REST_API_BASE_URL = process.env.REACT_APP_BACKEND_URL + '/api/company';
+// const REST_API_BASE_URL = (process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080') + '/api/company';
 
-//const REST_API_BASE_URL = 'http://localhost:8080/api/company';
+const REST_API_BASE_URL = 'http://backend:8080/api/company';
 
 export const listCompanies = () => axios.get(REST_API_BASE_URL + '/all');
 
