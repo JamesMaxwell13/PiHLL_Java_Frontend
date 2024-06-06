@@ -1,6 +1,9 @@
 import axios from "axios";
+import { process } from 'react'
 
-const REST_API_BASE_URL = 'http://localhost:8080/api/share';
+const REST_API_BASE_URL = process.env.REACT_APP_BACKEND_URL + '/api/share';
+
+// const REST_API_BASE_URL = 'http://localhost:8080/api/share';
 
 export const listShares = () => axios.get(REST_API_BASE_URL + '/all');
 
